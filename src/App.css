@@ -13,8 +13,23 @@
   }
 }
 
+.Navbar{
+  border: 2px solid green;
+  margin: 0.5vh;
+  padding: 1em;
+  width: 80vw;
+}
+
+.Body{
+  border: 2px solid red;
+  margin: 0.5vh;
+  padding: 1em;
+  height: 60vh;
+  width: 80vw;
+}
+
 .App-header {
-  background-color: #282c34;
+  background-color: #fafafa;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
