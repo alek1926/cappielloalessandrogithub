@@ -16,12 +16,12 @@
 .Navbar{
   border: 2px solid green;
   padding: 1em;
-  width: 81.6vw;
+  width: 80.8vw;
   display: flex;
   align-items: center;
   justify-items: space-between;
   position: relative;
-  font-size: 12px;
+  font-size: 18px;
   display: inline-flex;
 }
 
@@ -30,7 +30,7 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  margin-left: 70em;
+  margin-left: 700px;
 }
 
 .Logo{
@@ -68,7 +68,7 @@
 }
 
 .Paginazione{
-  margin-top: 200px;
+  margin-top: 130px;
 }
 
 .Tabella{
@@ -76,12 +76,22 @@
   margin-top: 100px;
 }
 
+.Form{
+  margin-left: 800px;
+  color: black;
+}
+
 a{
   padding: 5px;
 }
+th{
+  padding: 10px;
+}
 
 #tabellaSuperiore{
+  font-size: 23px;
   background-color: blue;
+  color: white;
 }
 
 .App-link {

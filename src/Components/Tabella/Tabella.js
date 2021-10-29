@@ -22,6 +22,16 @@ export const Tabella = () => {
     <td>29/10/2021</td>
 
   </tr>
+  <tr>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td></td>
+    <td></td>
+    <td></td>
+
+  </tr>
     </div>
   );
 };
