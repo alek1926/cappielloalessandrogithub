@@ -1,8 +1,14 @@
+import React, { useState } from 'react';
 import './App.css';
 import { Navbar } from "./Components/Navbar/Navbar"
 import { Body } from "./Components/Body/Body" 
+import { listRepos } from './api/repos';
 
 function App() {
+
+  const [repos, setRepos] = useState(listRepos());
+  console.log(repos);
+  
   return (
     <div className="App">
       

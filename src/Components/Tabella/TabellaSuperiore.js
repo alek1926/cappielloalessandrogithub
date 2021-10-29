@@ -1,11 +1,12 @@
 import * as React from "react";
 import { Tabella } from './Tabella';
-import { gitData } from '../../api/mock/data';
+import  gitData  from '../../api/mock/data.json';
 
 export const TabellaSuperiore = () => {
   const dataList = gitData.map((data) => <Tabella key={data.username} data={data} />);
   return (
     <table className="Tabella">
+      <thead>
   <tr id="tabellaSuperiore">
     <th>Cognome</th>
     <th>Nome</th>
@@ -15,7 +16,8 @@ export const TabellaSuperiore = () => {
     <th>Data creazione</th>
     <th>Ultimo aggiornamento</th>
   </tr>
-  {dataList}
+  </thead>
+  <tbody>{dataList}</tbody>
   </table>
 
   
