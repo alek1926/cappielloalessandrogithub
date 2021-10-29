@@ -15,9 +15,32 @@
 
 .Navbar{
   border: 2px solid green;
-  margin: 0.5vh;
   padding: 1em;
-  width: 80vw;
+  width: 81.6vw;
+  display: flex;
+  align-items: center;
+  justify-items: space-between;
+  position: relative;
+  font-size: 12px;
+  display: inline-flex;
+}
+
+.Menu{
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-left: 70em;
+}
+
+.Logo{
+  background-color: blue;
+  width: 100px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
 }
 
 .Body{
