@@ -1,37 +1,17 @@
-import * as React from "react";
+import * as React from 'react';
 
-export const Tabella = () => {
-  return (
-    <div className="Tabella">
-  <tr id="tabellaSuperiore">
-    <th>Cognome</th>
-    <th>Nome</th>
-    <th>Utente github</th>
-    <th>Nome repo</th>
-    <th>Totale Commit</th>
-    <th>Data creazione</th>
-    <th>Ultimo aggiornamento</th>
-  </tr>
-  <tr>
-    <td>Mario</td>
-    <td>Rossi</td>
-    <td>mrossi</td>
-    <td><a href="">rossi-mario-github</a></td>
-    <td>2</td>
-    <td>29/10/2021</td>
-    <td>29/10/2021</td>
-
-  </tr>
-  <tr>
-    <td>...</td>
-    <td>...</td>
-    <td>...</td>
-    <td>...</td>
-    <td></td>
-    <td></td>
-    <td></td>
-
-  </tr>
-    </div>
-  );
-};
+export const Tabella = (props) => {
+    return (
+        <React.Fragment>
+            <tr>
+                <td>{props.data.name}</td>
+                <td>{props.data.surname}</td>
+                <td>{props.data.username}</td>
+                <td>{props.data.repository}</td>
+                <td>{props.data.commits}</td>
+                <td>{props.data.creation_date}</td>
+                <td>{props.data.last_update}</td>
+            </tr>
+        </React.Fragment>
+    );
+}

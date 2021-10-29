@@ -1,7 +1,7 @@
 import * as React from "react";
 import { TotaleRepos } from "../TotaleRepos/TotaleRepos";
 import { Paginazione } from "../Paginazione/Paginazione";
-import { Tabella } from "../Tabella/Tabella";
+import { TabellaSuperiore } from "../Tabella/TabellaSuperiore";
 import { Form } from "../Form/Form"
 
 export const Body = () => {
@@ -9,7 +9,7 @@ export const Body = () => {
     <div className="Body">
         <TotaleRepos></TotaleRepos>
         <Form></Form>
-        <Tabella></Tabella>
+        <TabellaSuperiore></TabellaSuperiore>
         <Paginazione></Paginazione>
       {" "}
     </div>
