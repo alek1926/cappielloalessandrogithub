@@ -68,12 +68,21 @@
 }
 
 .Paginazione{
-  margin-top: 350px;
+  margin-top: 200px;
 }
+
+.Tabella{
+  color: black;
+  margin-top: 100px;
+}
+
 a{
   padding: 5px;
 }
 
+#tabellaSuperiore{
+  background-color: blue;
+}
 
 .App-link {
   color: #61dafb;
