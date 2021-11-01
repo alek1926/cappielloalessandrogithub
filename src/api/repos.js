@@ -1,7 +1,7 @@
-import data from './mock/data.json';
+import { createData } from './createData';
 
 export const listRepos = () => {
     const obj = [];
-    data.forEach(element => obj.push(element));
+    createData().forEach(element => obj.push(element));
     return obj;
 }
