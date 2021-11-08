@@ -7,8 +7,8 @@ import { listRepos } from './api/repos';
 function App() {
 
   const [repos, setRepos] = useState(listRepos());
-  console.log(repos);
-  
+//  console.log(repos);
+//  console.log(fetchGit());
   return (
     <div className="App">
       

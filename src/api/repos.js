@@ -1,7 +1,7 @@
-import { createData } from './createData';
+import { mergeData } from './mergeData';
 
 export const listRepos = () => {
     const obj = [];
-    createData().forEach(element => obj.push(element));
+    mergeData().forEach(element => obj.push(element));
     return obj;
 }

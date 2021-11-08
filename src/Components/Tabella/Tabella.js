@@ -6,11 +6,11 @@ export const Tabella = (props) => {
             <tr>
                 <td>{props.data.name}</td>
                 <td>{props.data.surname}</td>
-                <td>{props.data.username}</td>
-                <td>{props.data.repository}</td>
-                <td>{props.data.commits}</td>
-                <td>{props.data.creation_date}</td>
-                <td>{props.data.last_update}</td>
+                <td>{props.data.login}</td>
+                <td>{props.data.repos.map(repo => <li>{repo}</li>)}</td>
+                <td>{props.data.repos.map(repo => <li>{Math.floor(Math.random() * (30 - 1) + 1)}</li>)}</td>
+                <td>{props.data.creation_date.map(date => <li>{date}</li>)}</td>
+                <td>{props.data.last_update.map(date => <li>{date}</li>)}</td>
             </tr>
         </React.Fragment>
     );

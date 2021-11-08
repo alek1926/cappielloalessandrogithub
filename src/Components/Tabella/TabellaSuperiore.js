@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Tabella } from '../Tabella/Tabella'
-import { createData } from '../../api/createData';
+import { mergeData } from '../../api/mergeData';
 
 export const TabellaSuperiore = () => {
-    const dataList = createData().map((data) => <Tabella key={data.username} data={data} />);
+    const dataList = mergeData().map((data) => <Tabella key={data.login} data={data} />);
     return (
         <table className="Table">
             <thead id="tabellaSuperiore">

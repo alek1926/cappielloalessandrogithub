@@ -16,7 +16,7 @@
 .Navbar{
   border: 2px solid green;
   padding: 1em;
-  width: 80.8vw;
+  width: 80vw;
   display: flex;
   align-items: center;
   justify-items: space-between;
@@ -86,9 +86,12 @@ a{
 th{
   padding: 10px;
 }
+td{
+  list-style-type: none;
+  font-size: 13px;
+}
 
 #tabellaSuperiore{
-  font-size: 23px;
   background-color: blue;
   color: white;
 }
