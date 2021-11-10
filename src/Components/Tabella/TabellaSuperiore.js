@@ -15,6 +15,7 @@ export const TabellaSuperiore = () => {
                     <th>Totale commit</th>
                     <th>Data creazione</th>
                     <th>Ultimo aggiornamento</th>
+                    <th>Dettaglio</th>
                 </tr>
             </thead>
             <tbody>{dataList}</tbody>

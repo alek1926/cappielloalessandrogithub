@@ -1,5 +1,12 @@
 .App {
   text-align: center;
+  background-color: #fafafa;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
 }
 
 .App-logo {
@@ -21,8 +28,9 @@
   align-items: center;
   justify-items: space-between;
   position: relative;
-  font-size: 18px;
+  font-size: 16px;
   display: inline-flex;
+  color: white;
 }
 
 .Menu{
@@ -46,37 +54,29 @@
 .Body{
   border: 2px solid red;
   margin: 0.5vh;
-  padding: 1em;
+  padding: 0.7em;
   height: 60vh;
   width: 80vw;
 }
 
-.App-header {
-  background-color: #fafafa;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-}
 
 .TotaleRepos{
+  border: 2px solid blue;
   color: black;
-  margin-right: 1000px;
+  margin-right: 280px;
+  min-width: 200px;
 }
 
-.Paginazione{
-  margin-top: 60px;
-}
-
-.Tabella{
-  color: black;
-  margin-top: 10px;
+.ParteSuperioreBody{
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-items: space-between;
+  margin-bottom: 5px;
 }
 
 .Form{
-  margin-left: 800px;
+  border: 2px solid yellow;
   color: black;
 }
 
@@ -91,7 +91,16 @@ td{
   font-size: 13px;
 }
 
+.Table tr {
+  border-top: 1px solid black;
+}
+
 #tabellaSuperiore{
+  background-color: blue;
+  color: white;
+}
+
+#trDettaglio{
   background-color: blue;
   color: white;
 }
@@ -107,4 +116,33 @@ td{
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.MenuClassi {
+  position: relative;
+  display: inline-block;
+  margin-right: 277px;
+  font-size: 10px;
+}
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  font-size: 12px;
+  display: none;
+  position: absolute;
+  background-color: #fafafa;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 8px 12px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }

@@ -1,9 +1,12 @@
 import * as React from "react";
-
-export const TotaleRepos = () => {
+import { getReposOf } from "../../api/getReposOf.js"
+export const TotaleRepos = ( props ) => {
+  let lunghezzaRepos = 0;
+  props.totRepos.forEach(e => lunghezzaRepos += e["repos"].length);
+ 
   return (
     <div className="TotaleRepos">
-      Totale Repos: 10
+      Totale Repos: {lunghezzaRepos}
     </div>
   );
 };
