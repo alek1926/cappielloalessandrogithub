@@ -1,11 +1,15 @@
 import * as React from 'react';
 import { Tabella } from '../Tabella/Tabella'
-import { mergeData } from '../../api/mergeData';
+import { mergeData } from '../../api/mergeData.js';
+
 
 export const TabellaSuperiore = () => {
-    const dataList = mergeData().map((data) => <Tabella key={data.login} data={data} />);
+    console.log(mergeData())
+    //    const dataList = mergeData().map((data) => <Tabella key={data.login} data={data} />);
+    const dataList = mergeData().map(user => user.repos.map(repo => <Tabella data={user} repo={repo}> </Tabella>));
+    
     return (
-        <table className="Table">
+        <table className="Tabella">
             <thead id="tabellaSuperiore">
                 <tr>
                     <th>Cognome</th>

@@ -2,33 +2,28 @@ import * as React from 'react';
 import { useState } from 'react';
 import { arrayStates } from './arrayStates.js';
 import { nascondiButton } from './nascondiButton.js';
+import { ButtonDettaglio } from './ButtonDettaglio.js';
+import { contaRepos, incrementaCounter, resetCounter, userCorrente, cambiaUserCorrente } from '../../api/contaRepos.js';
+
 export const Tabella = (props) => {
-    const [showMore, setShowMore] = useState();
-    arrayStates.push([showMore, setShowMore]);
-
-    function handleDettaglio () {
-        nascondiButton();
-        setShowMore(!showMore);
-    } 
-
+    if (props.data.login != userCorrente) {
+        resetCounter();
+        cambiaUserCorrente(props.data.login);
+    }
+    incrementaCounter();
     return (
         <React.Fragment>
             <tr>
-                <td>{props.data.name}</td>
                 <td>{props.data.surname}</td>
+                <td>{props.data.name}</td>
                 <td>{props.data.login}</td>
-                <td>{props.data.repos.map(repo => <li key={props.data.id}>{repo}</li>)}</td>
-                <td>{props.data.repos.map(repo => <li key={props.data.id}>{Math.floor(Math.random() * (30 - 1) + 1)}</li>)}</td>
-                <td>{props.data.creation_date.map(date => <li>{date}</li>)}</td>
-                <td>{props.data.last_update.map(date => <li>{date}</li>)}</td>
-                <td><button type="button" onClick={handleDettaglio}>{showMore ? 'Nascondi' : 'Mostra'} Dettaglio</button></td>
+                <td>{props.repo}</td>
+                <td>{Math.floor(Math.random() * (30 - 1) + 1)}</td>
+                <td>{props.data.creation_date[contaRepos]}</td>
+                <td>{props.data.last_update[contaRepos]}</td>
+                <td>{props.data.repos.map(repo => <ButtonDettaglio props={props}></ButtonDettaglio>)}</td>
             </tr>
-            {showMore &&
-            <tr id="trDettaglio">
-                <td>{props.data.name}</td>
-                <td>{props.data.surname}</td>
-                <td>{props.data.login}</td>
-            </tr>}
+
                 
         </React.Fragment>
     );
