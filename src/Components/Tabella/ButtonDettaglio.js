@@ -14,11 +14,11 @@ export const ButtonDettaglio = (props) => {
     return (
         <div className="ButtonDettaglio">
             <button onClick={handleMoreClick}>
-                {showMore ? 'Hide' : 'Show'} details
+                {showMore ? 'Nascondi' : 'Mostra'} dettagli
             </button>
             {showMore &&
             <tr id="trDettaglio">
-                <td>{props.props.data.repos}</td>
+                <td>{props.props.data.repoName}</td>
             </tr>}
         </div>
     )

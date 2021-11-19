@@ -1,13 +1,17 @@
 import * as React from 'react';
+import { useState } from 'react';
 import { Tabella } from '../Tabella/Tabella'
-import { mergeData } from '../../api/mergeData.js';
-
+import { listRepos } from '../../api/repos.js';
 
 export const TabellaSuperiore = () => {
-    console.log(mergeData())
-    //    const dataList = mergeData().map((data) => <Tabella key={data.login} data={data} />);
-    const dataList = mergeData().map(user => user.repos.map(repo => <Tabella data={user} repo={repo}> </Tabella>));
-    
+    const [repos, setRepos] = useState(undefined);
+    React.useEffect(() => {
+        const populateRepos = async () => {
+            setRepos(await listRepos());
+        };
+        populateRepos();
+    }, [])
+    let dataList = repos ? repos.map(repo => <Tabella data={repo} />) : 'Loading...'
     return (
         <table className="Tabella">
             <thead id="tabellaSuperiore">
