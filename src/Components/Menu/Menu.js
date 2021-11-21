@@ -4,7 +4,6 @@ export const Menu = () => {
   return (
     <div className="Menu">
         <a href="">Visualizza Repos</a>
-        <a href="">Aggiorna Repos</a>
         <a href="">Nuovo Utente</a>
       {" "}
     </div>

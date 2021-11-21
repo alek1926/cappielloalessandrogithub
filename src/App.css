@@ -38,7 +38,7 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  margin-left: 735px;
+  margin-left: 850px;
 }
 
 .Logo{
@@ -77,6 +77,13 @@
 
 .Form{
   border: 2px solid yellow;
+  color: black;
+}
+
+.AggiornaRepos{
+  margin-top: 10px;
+  font-size: 13px;
+  background-color: white;
   color: black;
 }
 

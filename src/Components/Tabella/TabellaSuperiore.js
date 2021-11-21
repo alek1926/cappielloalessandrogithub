@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import { Tabella } from '../Tabella/Tabella'
 import { listRepos } from '../../api/repos.js';
+import { AggiornaRepos } from './AggiornaRepos';
 
 export const TabellaSuperiore = () => {
     const [repos, setRepos] = useState(undefined);
@@ -27,6 +28,8 @@ export const TabellaSuperiore = () => {
                 </tr>
             </thead>
             <tbody>{dataList}</tbody>
+            
+            <AggiornaRepos></AggiornaRepos>
         </table>
     );
 }
