@@ -5,6 +5,7 @@ import { Form } from "../Form/Form";
 import { listRepos } from "../../api/repos.js"
 import { useState } from "react";
 import { MenuClassi } from "../MenuClassi/MenuClassi";
+import { AggiornaRepos } from "../Tabella/AggiornaRepos";
 
 export const Body = () => {
   const [repos, setRepos] = useState(listRepos());
@@ -20,6 +21,7 @@ export const Body = () => {
     <div className="Body">
       <div className="ParteSuperioreBody">
         <TotaleRepos totRepos={repos}></TotaleRepos>
+        <AggiornaRepos></AggiornaRepos>
         <MenuClassi></MenuClassi>
         <Form></Form>
         </div>

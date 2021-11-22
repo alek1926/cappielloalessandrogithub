@@ -2,7 +2,6 @@ import * as React from 'react';
 import { useState } from 'react';
 import { Tabella } from '../Tabella/Tabella'
 import { listRepos } from '../../api/repos.js';
-import { AggiornaRepos } from './AggiornaRepos';
 
 export const TabellaSuperiore = () => {
     const [repos, setRepos] = useState(undefined);
@@ -12,7 +11,7 @@ export const TabellaSuperiore = () => {
         };
         populateRepos();
     }, [])
-    let dataList = repos ? repos.map(repo => <Tabella data={repo} />) : 'Loading...'
+    let dataList = repos ? repos.map((repo, index) => <Tabella data={repo} key={index} />) : <tr><th>Loading...</th></tr>
     return (
         <table className="Tabella">
             <thead id="tabellaSuperiore">
@@ -29,7 +28,7 @@ export const TabellaSuperiore = () => {
             </thead>
             <tbody>{dataList}</tbody>
             
-            <AggiornaRepos></AggiornaRepos>
+            
         </table>
     );
 }
