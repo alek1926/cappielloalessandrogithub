@@ -3,14 +3,14 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { axiosGet } from '../../api/axiosGet.js';
 
-export const AggiornaRepos = (props) => {
-    const [clicked, setClicked] = useState(0);
+export const AggiornaRepos = () => {
+    const [clicked, setClicked] = useState(false);
     useEffect(() => {
         axiosGet();
       }, [clicked]);
 
       function handleClick() {
-        setClicked(clicked + 1);
+        setClicked(!clicked);
     }
 
     return (

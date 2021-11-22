@@ -1,7 +1,4 @@
 import * as React from 'react';
-import { useState } from 'react';
-import { arrayStates } from './arrayStates.js';
-import { nascondiButton } from './nascondiButton.js';
 import { ButtonDettaglio } from './ButtonDettaglio.js';
 import { DateTime } from "luxon";
 

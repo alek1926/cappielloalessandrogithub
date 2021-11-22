@@ -4,7 +4,6 @@ import { arrayStates } from './arrayStates.js';
 import { nascondiButton } from './nascondiButton.js';
 
 export const ButtonDettaglio = (props) => {
-    const [index, setIndex] = useState(0);
     const [showMore, setShowMore] = useState(false);
     arrayStates.push([showMore, setShowMore]);
     function handleMoreClick() {
