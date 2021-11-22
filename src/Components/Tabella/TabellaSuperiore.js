@@ -1,17 +1,8 @@
 import * as React from 'react';
-import { useState } from 'react';
 import { Tabella } from '../Tabella/Tabella'
-import { listRepos } from '../../api/repos.js';
 
-export const TabellaSuperiore = () => {
-    const [repos, setRepos] = useState(undefined);
-    React.useEffect(() => {
-        const populateRepos = async () => {
-            setRepos(await listRepos());
-        };
-        populateRepos();
-    }, [])
-    let dataList = repos ? repos.map((repo, index) => <Tabella data={repo} key={index} />) : <tr><th>Loading...</th></tr>
+export const TabellaSuperiore = ( props ) => {
+
     return (
         <table className="Tabella">
             <thead id="tabellaSuperiore">
@@ -26,7 +17,7 @@ export const TabellaSuperiore = () => {
                     <th>Dettaglio</th>
                 </tr>
             </thead>
-            <tbody>{dataList}</tbody>
+            <tbody>{props.loading ? <tr><th>Loading</th></tr> : props.repos && props.repos.map((repo, index) => <Tabella data={repo} key={index}/>)}</tbody>
             
             
         </table>

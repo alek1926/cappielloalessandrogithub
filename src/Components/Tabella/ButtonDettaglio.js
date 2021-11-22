@@ -16,9 +16,9 @@ export const ButtonDettaglio = (props) => {
                 {showMore ? 'Nascondi' : 'Mostra'} dettagli
             </button>
             {showMore &&
-            <tr id="trDettaglio">
-                <td>{props.props.data.repoName}</td>
-            </tr>}
+            <div id="trDettaglio">
+                {props.props.data.repoName}
+            </div>}
         </div>
     )
 }

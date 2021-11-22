@@ -75,7 +75,7 @@
 .TotaleRepos{
   border: 2px solid blue;
   color: black;
-  margin-right: 280px;
+  margin-right: 180px;
   min-width: 200px;
 }
 
@@ -89,13 +89,6 @@
 
 .Form{
   border: 2px solid yellow;
-  color: black;
-}
-
-.AggiornaRepos{
-  margin-top: 10px;
-  font-size: 13px;
-  background-color: white;
   color: black;
 }
 
@@ -144,8 +137,9 @@ td{
 .MenuClassi {
   position: relative;
   display: inline-block;
-  margin-right: 277px;
+  margin-right: 189px;
   font-size: 10px;
+  margin-left: 50px;
 }
 
 
