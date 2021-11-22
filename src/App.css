@@ -41,6 +41,18 @@
   margin-left: 850px;
 }
 
+.Menu button {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  /*optional*/
+  font-family: arial, sans-serif;
+  /*input has OS specific font-family*/
+  color: #069;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .Logo{
   background-color: blue;
   width: 100px;
@@ -86,6 +98,7 @@
   background-color: white;
   color: black;
 }
+
 
 a{
   padding: 5px;
