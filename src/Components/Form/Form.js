@@ -1,12 +1,10 @@
 import * as React from "react";
+import TextField from '@mui/material/TextField';
 
 export const Form = () => {
   return (
     <div className="Form">
-      <form action="/action_page.php">
-  <label htmlFor="fname">Cerca: </label>
-  <input type="text" id="cerca" name="cerca"></input>
-</form> 
+      <TextField id="standard-basic" label="Cerca" variant="standard" />
 </div>
   );
 };
