@@ -2,14 +2,14 @@ import './App.css';
 import { Navbar } from "./Components/Navbar/Navbar"
 import { Body } from "./Components/Body/Body" 
 import 'bootstrap/dist/css/bootstrap.css';
-import { ThemeProvider, createMuiTheme } from '@mui/material/styles';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import React, { useState } from "react";
 import Switch from '@mui/material/Switch';
 import Paper from '@mui/material/Paper';
 
 function App() {
   const [toggleDark, setToggleDark] = useState(false);
-  const myTheme = createMuiTheme({
+  const myTheme = createTheme({
     palette: {
       mode: toggleDark ? 'dark' : 'light',
     },

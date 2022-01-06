@@ -4,30 +4,36 @@ import Table from '@mui/material/Table';
 import { TableHead } from '@mui/material';
 import TableContainer from '@mui/material/TableContainer';
 import TableRow from '@mui/material/TableRow';
-import TableCell from '@mui/material/TableCell';
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import TableBody from '@mui/material/TableBody';
-
+import CircularProgress from '@mui/material/CircularProgress';
+import { styled } from '@mui/material/styles';
 
 export const TabellaSuperiore = ( props ) => {
-
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+    [`&.${tableCellClasses.head}`]: {
+        backgroundColor: theme.palette.primary.dark,
+        color: theme.palette.common.white,
+    },
+}));
     return (
         <TableContainer>
-            <Table className="Tabella">
-             <TableHead id="tabellaSuperiore">
-                <TableRow>
-                    <TableCell align="center">Cognome</TableCell>
-                    <TableCell align="center">Nome</TableCell>
-                    <TableCell align="center">Utente github</TableCell>
-                    <TableCell align="center">Nome repo</TableCell>
-                    <TableCell align="left">Totale commit</TableCell>
-                    <TableCell align="left">Data creazione</TableCell>
-                    <TableCell align="left">Ultimo aggiornamento</TableCell>
-                    <TableCell align="center">Dettaglio</TableCell>
-                </TableRow>
-            </TableHead>
-            <TableBody>{props.loading ? <TableRow><TableHead>Loading</TableHead></TableRow> : props.repos && props.repos.map((repo, index) => <Tabella data={repo} key={index}/>)}</TableBody>
-            
-            
+            <Table>
+                <TableHead>
+                    <TableRow>
+                        <StyledTableCell>Avatar</StyledTableCell>
+                        <StyledTableCell>Cognome</StyledTableCell>
+                        <StyledTableCell>Nome</StyledTableCell>
+                        <StyledTableCell>Utente github</StyledTableCell>
+                        <StyledTableCell>Nome repo</StyledTableCell>
+                        <StyledTableCell>Totale commit</StyledTableCell>
+                        <StyledTableCell>Data creazione</StyledTableCell>
+                        <StyledTableCell>Ultimo aggiornamento</StyledTableCell>
+                        <StyledTableCell>Dettaglio</StyledTableCell>
+                        <StyledTableCell>Rating</StyledTableCell>
+                    </TableRow>
+                </TableHead>
+                <TableBody>{props.loading ? <TableRow><TableCell><CircularProgress /></TableCell></TableRow> : props.repos && props.repos.map(repo => <Tabella data={repo} key={repo.repoName} />)}</TableBody>
             </Table>
         </TableContainer>
     );

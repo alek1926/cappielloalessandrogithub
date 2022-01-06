@@ -13,7 +13,7 @@ export const Body = () => {
   const loadData = async () => {
       setLoading(true);
       const res = await listRepos();
-      if (res.data) setRepos(res.data.results);
+      if (res.data) setRepos(res.data);
       setLoading(false);
   }
   useEffect(() => {
@@ -33,7 +33,7 @@ export const Body = () => {
         </Grid>
         <Grid item lg={1} md={1.5} sm={4.5} xs={3}></Grid>
         <Grid item lg={3} md={2} sm={6} xs={6}>
-        <Button variant="contained" style={{backgroundColor: 'orangered', color: '#FAFAFA'}} size="large" className="AggiornaRepos" id="aggiornaRepos" onClick={() => handleClick()}>Aggiorna repos</Button>
+        <Button variant="contained" style={{backgroundColor: '#1565C0', color: '#FAFAFA'}} size="large" className="AggiornaRepos" id="aggiornaRepos" onClick={() => handleClick()}>Aggiorna repos</Button>
         </Grid>
         <Grid item lg={2} md={2} sm={12} xs={12}>
         <MenuClassi></MenuClassi>

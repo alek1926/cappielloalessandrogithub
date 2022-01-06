@@ -3,7 +3,9 @@ import { ButtonDettaglio } from './ButtonDettaglio.js';
 import { DateTime } from "luxon";
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
-
+import Avatar from '@mui/material/Avatar';
+import Rating from '@mui/material/Rating';
+import Typography from '@mui/material/Typography';
 
 export const Tabella = (props) => {
     const dataCreazione = DateTime.fromISO(props.data.creationDate).toLocaleString(DateTime.DATETIME_MED);
@@ -11,6 +13,7 @@ export const Tabella = (props) => {
     return (
         <React.Fragment>
             <TableRow>
+            <TableCell><Avatar>{props.data.name[0]}</Avatar></TableCell>
                 <TableCell>{props.data.surname}</TableCell>
                 <TableCell>{props.data.name}</TableCell>
                 <TableCell>{props.data.login}</TableCell>
@@ -18,7 +21,11 @@ export const Tabella = (props) => {
                 <TableCell>{Math.floor(Math.random() * (30 - 1) + 1)}</TableCell>
                 <TableCell>{dataCreazione}</TableCell>
                 <TableCell>{dataUltimoUpdate}</TableCell>
-                <TableCell align="center">{props.repo}<ButtonDettaglio props={props}/></TableCell>
+                <TableCell align="left">{props.repo}<ButtonDettaglio props={props}/></TableCell>
+                <TableCell>
+                <Typography component="legend">Nessun voto</Typography>
+                <Rating name="no-value" value={null} />
+            </TableCell>
             </TableRow>
 
                 
