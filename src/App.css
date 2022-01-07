@@ -18,6 +18,10 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+.Footer a{
+  padding: 40px;
+  text-decoration: none;
+}
 
 .Navbar{
   padding-top: 1em;

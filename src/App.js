@@ -1,6 +1,7 @@
 import './App.css';
 import { Navbar } from "./Components/Navbar/Navbar"
 import { Body } from "./Components/Body/Body" 
+import { Footer } from "./Components/Footer/Footer"
 import 'bootstrap/dist/css/bootstrap.css';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import React, { useState } from "react";
@@ -29,6 +30,7 @@ function App() {
     </div>
       <Navbar></Navbar>
         <Body></Body>
+        <Footer></Footer>
     </div>
     </Paper>
     </ThemeProvider>

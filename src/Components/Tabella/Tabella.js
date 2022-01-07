@@ -13,7 +13,7 @@ export const Tabella = (props) => {
     return (
         <React.Fragment>
             <TableRow>
-            <TableCell><Avatar>{props.data.name[0]}</Avatar></TableCell>
+            <TableCell><Avatar>{props.data.name[0]}{props.data.surname[0]}</Avatar></TableCell>
                 <TableCell>{props.data.surname}</TableCell>
                 <TableCell>{props.data.name}</TableCell>
                 <TableCell>{props.data.login}</TableCell>
@@ -22,10 +22,7 @@ export const Tabella = (props) => {
                 <TableCell>{dataCreazione}</TableCell>
                 <TableCell>{dataUltimoUpdate}</TableCell>
                 <TableCell align="left">{props.repo}<ButtonDettaglio props={props}/></TableCell>
-                <TableCell>
-                <Typography component="legend">Nessun voto</Typography>
-                <Rating name="no-value" value={null} />
-            </TableCell>
+
             </TableRow>
 
                 

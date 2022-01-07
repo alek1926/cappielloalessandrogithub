@@ -5,7 +5,7 @@ export const TotaleRepos = ( props ) => {
 
   return (
     <div className="TotaleRepos">
-      Totale Repos: {props.repos ? props.repos.length : <CircularProgress size={20}/>}
+      Totale Repos: {props.loading ? <CircularProgress size={20}/> : props.repos && props.repos.length}
     </div>
   );
 };
