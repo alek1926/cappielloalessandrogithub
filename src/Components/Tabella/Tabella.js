@@ -4,8 +4,6 @@ import { DateTime } from "luxon";
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import Avatar from '@mui/material/Avatar';
-import Rating from '@mui/material/Rating';
-import Typography from '@mui/material/Typography';
 
 export const Tabella = (props) => {
     const dataCreazione = DateTime.fromISO(props.data.creationDate).toLocaleString(DateTime.DATETIME_MED);

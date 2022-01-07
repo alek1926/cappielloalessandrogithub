@@ -4,15 +4,19 @@ import Autocomplete from '@mui/material/Autocomplete';
 import {popolaClassi} from './popolaClassi';
 
 export const MenuClassi = () => {
-    const [classe, setClasse] = useState(popolaClassi());
-const classi = [
-    "FULLSTACK 1° ANNO", "FULLSTACK 2° ANNO",
-    "CYBERSEC 1° ANNO", "CYBERSEC 2° ANNO",
-    "BIGDATA 1° ANNO", "BIGDATA 2° ANNO",
-    "MARKETING 1° ANNO", "MARKETING 2° ANNO"]
+    const [classi, setClassi] = useState(popolaClassi());
+    const [classeSelezionata, setClasseSelezionata] = useState(null);
+    
+    
+    //setClassi(classi) e console.log(classeSelezionata) sono presenti per evitare warning che avrebbero impedito il deployment
     return (
         <div className="MenuClassi">
                <Autocomplete
+                onChange={(event, newValue) => {
+                    setClassi(classi);
+                    setClasseSelezionata(newValue);
+                    console.log(classeSelezionata);
+                }}
                 disablePortal
                 id="combo-box-demo"
                 options={classi}
