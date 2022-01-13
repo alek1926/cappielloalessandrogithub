@@ -29,7 +29,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
                         <StyledTableCell>Totale commit</StyledTableCell>
                         <StyledTableCell>Data creazione</StyledTableCell>
                         <StyledTableCell>Ultimo aggiornamento</StyledTableCell>
-                        <StyledTableCell>Dettaglio</StyledTableCell>
+                        <StyledTableCell align="center">Dettaglio</StyledTableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>{props.loading ? <TableRow><TableCell><CircularProgress /></TableCell></TableRow> : props.repos && props.repos.filter(repo => repo.repoName.includes(props.keywords)).map(repo => <Tabella data={repo} key={repo.repoName} />)}</TableBody>

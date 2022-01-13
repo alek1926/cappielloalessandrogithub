@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { TotaleRepos } from "../TotaleRepos/TotaleRepos";
-import { TabellaSuperiore } from "../Tabella/TabellaSuperiore";
-import { Form } from "../Form/Form";
+import { TotaleRepos } from "../../Components/TotaleRepos/TotaleRepos";
+import { TabellaSuperiore } from "../../Components/Tabella/TabellaSuperiore";
+import { Form } from "../../Components/Form/Form";
 import { listRepos } from "../../api/repos.js"
-import { MenuClassi } from "../MenuClassi/MenuClassi";
+import { MenuClassi } from "../../Components/MenuClassi/MenuClassi";
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 

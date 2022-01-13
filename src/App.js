@@ -1,7 +1,7 @@
 import './App.css';
-import { Navbar } from "./Components/Navbar/Navbar"
-import { Body } from "./Components/Body/Body" 
-import { Footer } from "./Components/Footer/Footer"
+import { Navbar } from "./layout/Navbar/Navbar"
+import { Body } from "./pages/Body/Body" 
+import { Footer } from "./layout/Footer/Footer"
 import 'bootstrap/dist/css/bootstrap.css';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import React, { useState } from "react";

@@ -1,7 +1,8 @@
 import * as React from "react";
-import { Logo } from '../Logo/Logo'
-import { Menu } from '../Menu/Menu'
+import { Logo } from '../../Components/Logo/Logo'
+import { Menu } from '../../Components/Menu/Menu'
 import Grid from '@mui/material/Grid';
+
 
 export const Navbar = () => {
   return (
