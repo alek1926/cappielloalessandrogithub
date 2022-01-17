@@ -1,6 +1,5 @@
 import React from "react";
 import Switch from '@mui/material/Switch';
-import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
 
 export const SwitchToggle = (props) => {
