@@ -2,18 +2,19 @@ import * as React from "react";
 import { Logo } from '../../Components/Logo/Logo'
 import { Menu } from '../../Components/Menu/Menu'
 import Grid from '@mui/material/Grid';
+import {SwitchToggle} from '../../Components/Switch/SwitchToggle'
 
-
-export const Navbar = () => {
+export const Navbar = (props) => {
   return (
     <div className="Navbar">
       <Grid container direction="row">
-          <Grid item lg={3} md={4} xs={12}>
+          <Grid item lg={4} md={4} xs={12}>
           <Logo></Logo>
           </Grid>
-          <Grid item lg={6} md={4} xs={0}>
+          <Grid item lg={4} md={4} xs={12}>
+          <SwitchToggle toggleDark={props.toggleDark} handleThemeChange={props.handleThemeChange}></SwitchToggle>
             </Grid>
-          <Grid item lg={3} md={4} xs={12}>
+          <Grid item lg={4} md={4} xs={12}>
           <Menu></Menu>
           </Grid>
       </Grid>

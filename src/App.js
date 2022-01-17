@@ -2,10 +2,8 @@ import './App.css';
 import { Navbar } from "./layout/Navbar/Navbar"
 import { Body } from "./pages/Body/Body" 
 import { Footer } from "./layout/Footer/Footer"
-import 'bootstrap/dist/css/bootstrap.css';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import React, { useState } from "react";
-import Switch from '@mui/material/Switch';
 import Paper from '@mui/material/Paper';
 
 function App() {
@@ -22,13 +20,9 @@ function App() {
     <ThemeProvider theme={myTheme}>
     <Paper>
     <div className="App">
-    <div>Tema scuro:<Switch
-    checked={toggleDark}
-    onChange={handleModeChange}
-    name="toggleDark"
-    color="default" />
-    </div>
-      <Navbar></Navbar>
+  
+      <Navbar toggleDark={toggleDark} handleThemeChange={handleModeChange} ></Navbar>
+
         <Body></Body>
         <Footer></Footer>
     </div>
