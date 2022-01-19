@@ -17,8 +17,8 @@ function App() {
     setToggleDark(!toggleDark);
   };
   return (
-    <ThemeProvider theme={myTheme}>
-    <Paper>
+    <ThemeProvider theme={myTheme} >
+    <Paper style={{ borderRadius: 0 }}>
     <div className="App">
   
       <Navbar toggleDark={toggleDark} handleThemeChange={handleModeChange} ></Navbar>
