@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { TotaleRepos } from "../../Components/TotaleRepos/TotaleRepos";
-import { TabellaSuperiore } from "../../Components/Tabella/TabellaSuperiore";
-import { Form } from "../../Components/Form/Form";
-import { MenuClassi } from "../../Components/MenuClassi/MenuClassi";
+import { TotaleRepos } from "../Components/TotaleRepos/TotaleRepos";
+import { TabellaSuperiore } from "../Components/Tabella/TabellaSuperiore";
+import { Form } from "../Components/Form/Form";
+import { MenuClassi } from "../Components/MenuClassi/MenuClassi";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
-import { useRepos } from "../../hooks/useRepos";
+import { useRepos } from "../hooks/useRepos";
 
-export const Body = () => {
+export default function Repos () {
   const { repos, loading, loadData, isError } = useRepos();
   const [keywords, setKeywords] = useState("");
 

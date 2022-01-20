@@ -1,10 +1,11 @@
 import './App.css';
 import { Navbar } from "./layout/Navbar/Navbar"
-import { Body } from "./pages/Body/Body" 
 import { Footer } from "./layout/Footer/Footer"
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import React, { useState } from "react";
 import Paper from '@mui/material/Paper';
+import { Outlet } from "react-router-dom";
+
 
 function App() {
   const [toggleDark, setToggleDark] = useState(false);
@@ -22,9 +23,8 @@ function App() {
     <div className="App">
   
       <Navbar toggleDark={toggleDark} handleThemeChange={handleModeChange} ></Navbar>
-
-        <Body></Body>
-        <Footer></Footer>
+      <Outlet />
+      <Footer></Footer>
     </div>
     </Paper>
     </ThemeProvider>
