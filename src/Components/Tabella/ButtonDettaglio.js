@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { arrayStates } from './arrayStates.js';
 import { nascondiButton } from './nascondiButton.js';
 import Button from '@mui/material/Button';
-
 export const ButtonDettaglio = (props) => {
     const [showMore, setShowMore] = useState(false);
     arrayStates.push([showMore, setShowMore]);
@@ -11,15 +10,17 @@ export const ButtonDettaglio = (props) => {
         nascondiButton();
         setShowMore(!showMore);
     }
-    return (
+
+
+    return (        
         <div className="ButtonDettaglio">
-            <Button size="small" style={{color: 'blue'}} onClick={handleMoreClick}>
-                {showMore ? 'Nascondi' : 'Mostra'} dettagli
+
+            <Button size="large" style={{color: 'blue', fontSize: '10px'}} onClick={handleMoreClick}>
+                Mostra dettagli
             </Button>
-            {showMore &&
-            <div id="trDettaglio">
-                {props.props.data.repoName}
-            </div>}
+            
+           
+            
         </div>
     )
 }

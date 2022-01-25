@@ -4,6 +4,7 @@ import { DateTime } from "luxon";
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import Avatar from '@mui/material/Avatar';
+import { Link, Outlet, Route, Routes } from "react-router-dom";
 
 export const Tabella = (props) => {
     const dataCreazione = DateTime.fromISO(props.data.creationDate).toLocaleString(DateTime.DATETIME_MED);
@@ -19,9 +20,16 @@ export const Tabella = (props) => {
                 <TableCell>{Math.floor(Math.random() * (30 - 1) + 1)}</TableCell>
                 <TableCell>{dataCreazione}</TableCell>
                 <TableCell>{dataUltimoUpdate}</TableCell>
-                <TableCell align="left">{props.repo}<ButtonDettaglio props={props}/></TableCell>
+          <TableCell align="left"><Link to={`/repos/${props.data.idRepo}`} state={{ from: props.data }}><ButtonDettaglio props={props}/></Link>
+          </TableCell>
 
             </TableRow>
+            
+        <Routes>
+        <Route path="/repos/:props.data.idRepo" element={<ButtonDettaglio />} />
+        </Routes>
+        
+            <Outlet />
 
                 
         </React.Fragment>

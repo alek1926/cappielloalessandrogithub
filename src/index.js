@@ -10,6 +10,7 @@ import Logout from "./pages/Logout";
 import Classes from "./pages/Classes";
 import Notfound from "./pages/Notfound";
 import Repos from "./pages/Repos"; 
+import {DettagliRepos} from "./pages/DettagliRepos";
 import { Routes, Route } from "react-router-dom";
 
 ReactDOM.render(
@@ -19,7 +20,8 @@ ReactDOM.render(
         <Route path="/" element={<App />}>
           <Route path="users" element={<Users />} />
           <Route path="classes" element={<Classes />} />
-          <Route path="repos" element={<Repos />} />
+          <Route path="repos/*" element={<Repos />} />
+          <Route path="repos/:repoName" element={<DettagliRepos />} />
         </Route>
         <Route path="logout" element={<Logout />} />
         <Route path="login" element={<Login />} />
