@@ -10,7 +10,7 @@ export const useRepos = () => {
     setLoading(true);
     try {
       const res = await listRepos();
-      setRepos(res.data);
+      setRepos(res.data.results);
       setLoading(false);
     } catch (error) {
       setIsError(true);
