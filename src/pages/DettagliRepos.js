@@ -1,16 +1,18 @@
 import { useLocation } from 'react-router-dom';
-import {dettagli} from '../api/dettagliGet.js';
 import { DateTime } from "luxon";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
-import Box from '@mui/material/Box';
+import { useReposDetails } from '../hooks/useReposDetails';
+import CircularProgress from '@mui/material/CircularProgress';
+import { Paper } from '@mui/material';
 
 export const DettagliRepos = () => {
     const location = useLocation();
     const { from } = location.state;
+    const { dettagli, error, isError } = useReposDetails(from);
+    if (dettagli == null) return <CircularProgress />;
     const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(1),
@@ -18,6 +20,8 @@ export const DettagliRepos = () => {
     color: theme.palette.text.secondary,
     }));
     return (
+     <div>
+        {isError ? <div>{error}</div> :
          <div>
          <h1>{dettagli.name} {dettagli.surname}</h1>
          <h3>{dettagli.repoName}</h3>
@@ -25,7 +29,7 @@ export const DettagliRepos = () => {
          spacing={2}  
          justifyContent="center">
          {dettagli.commits.map(e=>
-         <Grid item id="ciao">
+         <Grid item key={e.committer.date}>
             <Item>
                 <Card >
                     <CardContent>
@@ -39,6 +43,7 @@ export const DettagliRepos = () => {
          </Grid>
          )}
          </Grid>
+         </div>}
          </div>
          )}
 
