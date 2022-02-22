@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { reposDetails } from '../api/dettagliGet';
+import {userMock} from "../api/user.js";
 
 export const useReposDetails = (props) => {
+    const [user, setUser] = useState(userMock);
     const [dettagli, setDettagli] = useState(null);
     const [error, setError] = useState(null);
     const [isError, setIsError] = useState(false);
@@ -16,6 +18,6 @@ export const useReposDetails = (props) => {
             }
         }
         loadData();
-    }, [props.login, props.repoName]);
+    }, user.session === true ? [props.login, props.repoName] : "", "");
     return { dettagli, error, isError };
 }

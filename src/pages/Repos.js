@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { TotaleRepos } from "../Components/TotaleRepos/TotaleRepos";
 import { TabellaSuperiore } from "../Components/Tabella/TabellaSuperiore";
 import { Form } from "../Components/Form/Form";
@@ -6,10 +6,15 @@ import { MenuClassi } from "../Components/MenuClassi/MenuClassi";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import { useRepos } from "../hooks/useRepos";
+import { userContext } from "../context/userContext";
+import { useNavigate } from "react-router-dom"
+import {userMock} from "../api/user.js";
 
 export default function Repos () {
   const { repos, loading, loadData, isError } = useRepos();
   const [keywords, setKeywords] = useState("");
+  const [user, setUser] = useState(userMock);
+  let navigate = useNavigate();
 
   const newKeywords = (_keywords) => {
     setKeywords(_keywords);
@@ -18,6 +23,15 @@ export default function Repos () {
   const handleClick = () => {
     loadData();
   };
+  useEffect(() => {
+    const isAuth = () => {
+        if (user.session !== true) {
+            navigate("/-1")
+            navigate("/login")
+        }
+    }
+    isAuth();
+}, [navigate]);
 
   return (
     <div className="Body">
@@ -57,7 +71,6 @@ export default function Repos () {
         ></TabellaSuperiore>
       )}
       {isError && <div>Errore</div>}{" "}
-      
     </div>
     
   );

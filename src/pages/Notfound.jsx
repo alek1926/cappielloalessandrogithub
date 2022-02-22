@@ -4,8 +4,9 @@ export default function Notfound () {
 
     return(
     <>
-    <h1>Not found</h1>
-    <Link to="/repos">torna alla home</Link>
+    <div class="centra">
+        <h1>Errore 404</h1>
+    <Link to="/repos">torna alla home</Link></div>
     </>
     );
 }

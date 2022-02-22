@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { useLocation } from 'react-router-dom';
 import { DateTime } from "luxon";
 import Card from '@mui/material/Card';
@@ -7,10 +8,12 @@ import { styled } from '@mui/material/styles';
 import { useReposDetails } from '../hooks/useReposDetails';
 import CircularProgress from '@mui/material/CircularProgress';
 import { Paper } from '@mui/material';
+import {userMock} from "../api/user.js";
 
 export const DettagliRepos = () => {
+    const [user, setUser] = useState(userMock);
     const location = useLocation();
-    const { from } = location.state;
+    const { from } = user.session ? location.state : "";
     const { dettagli, error, isError } = useReposDetails(from);
     if (dettagli == null) return <CircularProgress />;
     const Item = styled(Paper)(({ theme }) => ({

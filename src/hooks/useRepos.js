@@ -17,11 +17,10 @@ export const useRepos = () => {
       setLoading(false);
     }
   };
-
+  
   useEffect(() => {
     loadData();
   }, []);
-
   return {
     repos,
     loading,
