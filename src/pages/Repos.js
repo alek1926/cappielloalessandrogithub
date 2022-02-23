@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { TotaleRepos } from "../Components/TotaleRepos/TotaleRepos";
 import { TabellaSuperiore } from "../Components/Tabella/TabellaSuperiore";
 import { Form } from "../Components/Form/Form";
@@ -13,8 +13,11 @@ import {userMock} from "../api/user.js";
 export default function Repos () {
   const { repos, loading, loadData, isError } = useRepos();
   const [keywords, setKeywords] = useState("");
-  const [user, setUser] = useState(userMock);
+  const [user, setUser] = useContext(userMock);
   let navigate = useNavigate();
+
+  // Custom hook
+  const {session, navigateRoute} = useAuth();
 
   const newKeywords = (_keywords) => {
     setKeywords(_keywords);
@@ -23,15 +26,15 @@ export default function Repos () {
   const handleClick = () => {
     loadData();
   };
+
   useEffect(() => {
     const isAuth = () => {
-        if (user.session !== true) {
-            navigate("/-1")
-            navigate("/login")
+        if (session !== true) {
+            navigate(navigateRoute);
         }
     }
     isAuth();
-}, [navigate]);
+}, [session,navigateRoute]);
 
   return (
     <div className="Body">
