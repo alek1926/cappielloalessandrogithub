@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import { reposDetails } from '../api/dettagliGet';
+import { reposDetails } from '../api/repos';
 import {userMock} from "../api/user.js";
 
 export const useReposDetails = (props) => {
-    const [user, setUser] = useState(userMock);
+    const [user] = useState(userMock);
     const [dettagli, setDettagli] = useState(null);
     const [error, setError] = useState(null);
     const [isError, setIsError] = useState(false);

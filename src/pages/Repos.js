@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { TotaleRepos } from "../Components/TotaleRepos/TotaleRepos";
 import { TabellaSuperiore } from "../Components/Tabella/TabellaSuperiore";
 import { Form } from "../Components/Form/Form";
@@ -6,17 +6,14 @@ import { MenuClassi } from "../Components/MenuClassi/MenuClassi";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import { useRepos } from "../hooks/useRepos";
-import { userContext } from "../context/userContext";
-import { useNavigate } from "react-router-dom"
-import {userMock} from "../api/user.js";
+import { useNavigate } from "react-router-dom";
+import {useAuth} from "../hooks/useAuth";
 
 export default function Repos () {
   const { repos, loading, loadData, isError } = useRepos();
   const [keywords, setKeywords] = useState("");
-  const [user, setUser] = useContext(userMock);
   let navigate = useNavigate();
 
-  // Custom hook
   const {session, navigateRoute} = useAuth();
 
   const newKeywords = (_keywords) => {

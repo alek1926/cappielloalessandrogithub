@@ -11,7 +11,7 @@ import { Paper } from '@mui/material';
 import {userMock} from "../api/user.js";
 
 export const DettagliRepos = () => {
-    const [user, setUser] = useState(userMock);
+    const [user] = useState(userMock);
     const location = useLocation();
     const { from } = user.session ? location.state : "";
     const { dettagli, error, isError } = useReposDetails(from);
