@@ -19,6 +19,6 @@ export const useAuth = () => {
             
         }
         isAuth();
-    }, [session, navigateRoute]);
+    }, [session, navigateRoute]); // eslint-disable-line react-hooks/exhaustive-deps
     return {session, navigateRoute};
 }

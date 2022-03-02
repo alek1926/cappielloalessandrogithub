@@ -18,6 +18,6 @@ export const useReposDetails = (props) => {
             }
         }
         loadData();
-    }, user.session === true ? [props.login, props.repoName] : "", "");
+    }, user.session === true ? [props.login, props.repoName] : "", ""); // eslint-disable-line react-hooks/exhaustive-deps
     return { dettagli, error, isError };
 }

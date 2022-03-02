@@ -14,7 +14,7 @@ export default function Users () {
             }
         }
         isAuth();
-    }, [session,navigateRoute]);
+    }, [session,navigateRoute]);// eslint-disable-line react-hooks/exhaustive-deps
     return(
     <>
     <h1>users</h1>
