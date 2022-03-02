@@ -13,7 +13,7 @@ export default function Classes () {
             }
         }
         isAuth();
-    }, [session,navigateRoute]);// eslint-disable-line react-hooks/exhaustive-deps
+    }, [session,navigateRoute, navigate]);
     return(
     <>
     <h1>classes</h1>

@@ -17,7 +17,7 @@ export default function Login () {
     noValidate
     autoComplete="off"
   >
-    <div class="centra">
+    <div className="centra">
         <Grid container spacing={2}>
         <Grid item xs={12} lg={4}>
         <TextField 

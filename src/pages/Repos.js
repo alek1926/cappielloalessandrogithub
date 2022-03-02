@@ -31,7 +31,7 @@ export default function Repos () {
         }
     }
     isAuth();
-}, [session,navigateRoute]);// eslint-disable-line react-hooks/exhaustive-deps
+}, [session,navigateRoute, navigate]);
 
   return (
     <div className="Body">
