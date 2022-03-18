@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useLocation } from 'react-router-dom';
-import { DateTime } from "luxon";
+import {formatDate} from '../utils/dateUtils';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Grid';
@@ -38,7 +38,7 @@ export const DettagliRepos = () => {
                     <CardContent>
                         <h4>nome: {e.committer.name}</h4>
                         <h4>email: {e.committer.email}</h4>
-                        <h4>data: {DateTime.fromISO(e.committer.date).toLocaleString(DateTime.DATETIME_MED)}</h4>
+                        <h4>data: {formatDate(e.committer.date)}</h4>
                         <h4>messaggio: {e.message}</h4>
                     </CardContent>
                 </Card>

@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { ButtonDettaglio } from './ButtonDettaglio.js';
-import { DateTime } from "luxon";
+import {formatDate} from '../../utils/dateUtils';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import Avatar from '@mui/material/Avatar';
 import { Link, Outlet, Route, Routes } from "react-router-dom";
 
 export const Tabella = (props) => {
-    const dataCreazione = DateTime.fromISO(props.data.creationDate).toLocaleString(DateTime.DATETIME_MED);
-    const dataUltimoUpdate = DateTime.fromISO(props.data.lastUpdate).toLocaleString(DateTime.DATETIME_MED);
+    const dataCreazione = formatDate(props.data.creationDate);
+    const dataUltimoUpdate = formatDate(props.data.lastUpdate);
     return (
         <React.Fragment>
             <TableRow>
