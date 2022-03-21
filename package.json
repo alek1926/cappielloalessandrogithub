@@ -1,6 +1,6 @@
 {
   "name": "cappiello-alessandro-github",
-  "version": "2.2.4",
+  "version": "2.2.5",
   "private": true,
   "type": "module",
   "dependencies": {
@@ -23,7 +23,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=node",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
