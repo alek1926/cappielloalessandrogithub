@@ -17,6 +17,10 @@ export const reposDetails = async (owner, repo) => {
   return response.data;
 }
 export const listRepos = async () => {
+  try{
   const response = await axios.get(API_DOMAIN + API_PREFIX + API_REPOS );
-  return response;
+  return response;}
+  catch(error){
+    throw error;
+  }
 }
