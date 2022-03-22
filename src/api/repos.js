@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API_DOMAIN, API_PREFIX, API_REPODETAIL, API_REPOS } from '../config/configApi';
+import { API_DOMAIN, API_PREFIX, API_REPODETAIL, API_REPOS, API_REPO } from '../config/configApi';
 
 
 export const axiosGet = () => {
@@ -9,12 +9,11 @@ export const axiosGet = () => {
 }
 
 export const reposDetails = async (owner, repo) => {
-  let response = null;
-  response = await axios.get(
+  let response = await axios.get(
     API_DOMAIN + API_PREFIX + API_REPODETAIL 
       + owner 
-      + "&repo=" + repo);
-  return response.data;
+      + API_REPO + repo);
+  return response;
 }
 export const listRepos = async () => {
   try{

@@ -31,7 +31,7 @@ export const DettagliRepos = () => {
          <Grid container 
          spacing={2}  
          justifyContent="center">
-         {dettagli.commits.map(e=>
+         {dettagli.data.commits.map(e=>
          <Grid item key={e.committer.date}>
             <Item>
                 <Card >

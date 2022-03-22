@@ -1,7 +1,10 @@
-import axios from 'axios';
-import { API_DOMAIN, API_PREFIX, API_REPOS } from '../../config/configApi';
-import { listRepos } from '../../api/repos';
-describe('test chiamata get', () => {
+import * as axios from 'axios';
+import { API_DOMAIN, API_PREFIX, API_REPOS, API_REPO } from '../../config/configApi';
+import { listRepos, reposDetails } from '../../api/repos';
+import { dataMock, reposMock } from './mock';
+jest.mock("axios");
+
+describe('listRepos', () => {
 
     beforeAll(() => {
         jest.setTimeout(2000000)
@@ -14,26 +17,27 @@ describe('test chiamata get', () => {
     });
 
     it('prende un link giusto e ritorna elenco repos', async () => {
-        const get = await listRepos();
+        axios.get.mockResolvedValueOnce(dataMock);
 
-        expect(get).toHaveProperty("data");
-        const dati = get.data;
+        const response =  await listRepos();
 
-        const ris = dati.results;
         
-        expect(ris.length).toBeGreaterThan(0);
+        expect(response.length).toBeGreaterThan(0);
         
-        ris.forEach(e => {
+        response.forEach(e => {
             expect(e).toHaveProperty("repoName");
         })
+
+        expect(response).toEqual(dataMock);
+        
         
     });
 
     it('gli viene passato un link undefined e ritorna eccezione', async () => {
         try{
             const response = await axios.get(undefined);
-            return response;}
-            catch(error){
+            return response;
+        }catch(error){
                 expect(error.message).toEqual('The \"url\" argument must be of type string. Received undefined');
             }
     });
@@ -41,16 +45,14 @@ describe('test chiamata get', () => {
 
 
     it('prende un link giusto e la rete è giù, restituisce 500', async () => {
-/*      const get = await listRepos();
-        const test = get.toString();
-        expect(test).toEqual("Error: getaddrinfo ENOTFOUND github-funtion-ttf.azurewebsites.net");*/
+        
     });
 
     it('prende un link sbagliato e restituisce errore', async () => {
         try{
-            const response = await axios.get('https://cikgghcao.com');
-            return response;}
-            catch(error){
+            const response = await axios.get('https://cikgghvcao.com');
+            return response;
+        }catch(error){
                 expect(error.message).toContain('getaddrinfo ENOTFOUND');
             }
     });
@@ -58,11 +60,45 @@ describe('test chiamata get', () => {
     it('struttura della get sbagliata e restituisce 404', async () => {
         try{
             const response = await axios.get(API_DOMAIN + API_REPOS );
-            return response;}
-            catch(error){
+            return response;
+        }catch(error){
                 expect(error.message).toEqual('Request failed with status code 404');
             }
     });
 
 
+});
+
+describe('reposDetails', ()=>{
+
+    it('riceve dei parametri giusti e risponde con dati corretti', async()=>{
+        axios.get.mockResolvedValueOnce(reposMock);
+        const owner = 'gabrysili';
+        const repo = 'silipigni-gabriele-github';
+        
+        const response = await reposDetails(owner, repo);
+
+        expect(response).toEqual(reposMock);
+    });
+
+    it('riceve dei parametri sbagliati e risponde con errore 500', async () =>{
+        const owner = 'jadjisjdisj';
+        const repo = 'dsjksa-fdsij-github';
+
+        try{
+            await reposDetails(owner, repo);
+        }catch(error){
+            expect(error.message).toBe('Request failed with status code 500');
+        }
+        
+    })
+    it('riceve un link sbagliato e risponde con errore', async () =>{
+        try{
+            let response = await axios.get(
+            'https://GNENEGNEGNIGNIGNI.COM');
+          return response;
+        }catch(error){
+            expect(error.message).toContain('getaddrinfo ENOTFOUND');
+          }
+    })
 });
