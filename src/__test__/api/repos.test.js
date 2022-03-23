@@ -1,7 +1,7 @@
 import * as axios from 'axios';
 import { API_DOMAIN, API_PREFIX, API_REPOS, API_REPO } from '../../config/configApi';
 import { listRepos, reposDetails } from '../../api/repos';
-import { dataMock, reposMock } from './mock';
+import { dataMock, reposMock } from './mock/mock';
 jest.mock("axios");
 
 describe('listRepos', () => {
@@ -34,12 +34,10 @@ describe('listRepos', () => {
     });
 
     it('gli viene passato un link undefined e ritorna eccezione', async () => {
-        try{
+
             const response = await axios.get(undefined);
-            return response;
-        }catch(error){
-                expect(error.message).toEqual('The \"url\" argument must be of type string. Received undefined');
-            }
+
+                expect(response).toThrow;
     });
 
 
@@ -49,21 +47,16 @@ describe('listRepos', () => {
     });
 
     it('prende un link sbagliato e restituisce errore', async () => {
-        try{
+
             const response = await axios.get('https://cikgghvcao.com');
-            return response;
-        }catch(error){
-                expect(error.message).toContain('getaddrinfo ENOTFOUND');
-            }
+            expect(response).toThrow;
     });
 
     it('struttura della get sbagliata e restituisce 404', async () => {
-        try{
+
             const response = await axios.get(API_DOMAIN + API_REPOS );
-            return response;
-        }catch(error){
-                expect(error.message).toEqual('Request failed with status code 404');
-            }
+
+                expect(response).toThrow;
     });
 
 
@@ -85,20 +78,15 @@ describe('reposDetails', ()=>{
         const owner = 'jadjisjdisj';
         const repo = 'dsjksa-fdsij-github';
 
-        try{
             await reposDetails(owner, repo);
-        }catch(error){
-            expect(error.message).toBe('Request failed with status code 500');
-        }
+            expect(reposDetails).toThrow;
+
         
     })
     it('riceve un link sbagliato e risponde con errore', async () =>{
-        try{
+ 
             let response = await axios.get(
             'https://GNENEGNEGNIGNIGNI.COM');
-          return response;
-        }catch(error){
-            expect(error.message).toContain('getaddrinfo ENOTFOUND');
-          }
+          expect(response).toThrow;
     })
 });

@@ -9,17 +9,22 @@ export const axiosGet = () => {
 }
 
 export const reposDetails = async (owner, repo) => {
-  let response = await axios.get(
+  try{
+    let response = await axios.get(
     API_DOMAIN + API_PREFIX + API_REPODETAIL 
       + owner 
-      + API_REPO + repo);
+      + API_REPO + repo)
+      
   return response;
+    }catch(error){
+      throw error;
+      };
 }
 export const listRepos = async () => {
   try{
   const response = await axios.get(API_DOMAIN + API_PREFIX + API_REPOS );
-  return response;}
-  catch(error){
+  return response;
+}catch(error){
     throw error;
   }
 }
