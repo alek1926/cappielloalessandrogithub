@@ -1,5 +1,20 @@
-import { renderHook } from '@testing-library/react-hooks';
+/**
+ * @jest-environment jsdom
+ */
+import { act, renderHook } from '@testing-library/react-hooks';
 import {useRepos} from '../../hooks/useRepos';
+import {dataMock} from '../api/mock/mock';
+import {listRepos} from '../../api/repos';
+
+jest.mock("axios");
+jest.mock('../../api/repos', () =>{
+    return {
+        listRepos: jest.fn(),
+      };
+});
+/*jest.mock('../../hooks/useRepos', () => ({
+    loadData: () => [dataMock]
+}));*/
 //Happy path
 //L'hook viene caricato e repos è un array con almeno 1 elemento
 //Special cases
@@ -11,10 +26,25 @@ import {useRepos} from '../../hooks/useRepos';
 //Altro errore (undefined)
 
 describe('useRepos', () => {
-    it('viene caricato correttamente e ritorna un array con almeno 1 elemento', ()=>{
-        const { useReposInstance } = renderHook(()=>useRepos());
-        expect(useReposInstance.current.repos).toBeDefined();
-        expect(useReposInstance.current.repos.length).toBeGreaterThan(0);
+    it('viene caricato correttamente e ritorna un array con almeno 1 elemento', async ()=>{
+        listRepos.mockReturnValue(dataMock);
+
+        const { result } = renderHook(() => useRepos());
+        //await waitForNextUpdate();
+        expect(result.current.repos).toEqual('ciao');
+        expect(result.current.repos.length).toBeGreaterThan(0);
+        /*
+        jest.mock('../../hooks/useRepos', () => ({
+            loadData: () => ({
+            repos: 'ciao'})
+        }));
+        useRepos.mockReturnValue({
+            loadData: jest.fn().mockResolvedValueOnce(dataMock),
+          });
+        result.current.loadData()
+        act(()=>{
+            result.current.listRepos();
+        });*/
     });
     it('viene caricato ma non ritorna risultati', ()=>{
         

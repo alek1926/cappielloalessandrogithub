@@ -1,0 +1,6 @@
+{
+    "name": "github-app",
+    "jest":{
+        "testEnvironment": "node"
+    }
+}

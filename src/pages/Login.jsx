@@ -3,9 +3,15 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
+import { useNavigate } from "react-router-dom";
 
 
 export default function Login () {
+  let navigate = useNavigate();
+  const loginRedirect = () =>{ 
+    let path = `/repos`; 
+    navigate(path);
+  }
 
     return(
     <>    
@@ -35,7 +41,7 @@ export default function Login () {
         />
         </Grid>
         <Grid item xs={12} lg={2}>
-    <Button variant="outlined" size="large" id="login">Log In</Button>
+    <Button variant="outlined" size="large" id="login" onClick={loginRedirect}>Log In</Button>
     </Grid>
     </Grid>
     </div>

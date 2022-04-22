@@ -34,10 +34,10 @@ describe('listRepos', () => {
     });
 
     it('gli viene passato un link undefined e ritorna eccezione', async () => {
+        const msg = "Request failed with status code 404";
+        axios.get.mockRejectedValueOnce(msg);
 
-            const response = await axios.get(undefined);
-
-                expect(response).toThrow;
+        expect(() => listRepos()).rejects.toThrowError('Request failed with status code 404');
     });
 
 
@@ -46,17 +46,19 @@ describe('listRepos', () => {
         
     });
 
-    it('prende un link sbagliato e restituisce errore', async () => {
+    it('prende un link sbagliato e restituisce errore ', async () => {
+        const msg = "getaddrinfo ENOTFOUND"
+        
+        axios.get.mockRejectedValueOnce(msg);
 
-            const response = await axios.get('https://cikgghvcao.com');
-            expect(response).toThrow;
+        expect(() => listRepos()).rejects.toThrowError('getaddrinfo ENOTFOUND');
     });
 
     it('struttura della get sbagliata e restituisce 404', async () => {
+        const msg = "Request failed with status code 404";
+        axios.get.mockRejectedValueOnce(msg);
 
-            const response = await axios.get(API_DOMAIN + API_REPOS );
-
-                expect(response).toThrow;
+        expect(() => listRepos()).rejects.toThrowError('Request failed with status code 404');
     });
 
 
@@ -75,18 +77,18 @@ describe('reposDetails', ()=>{
     });
 
     it('riceve dei parametri sbagliati e risponde con errore 500', async () =>{
-        const owner = 'jadjisjdisj';
-        const repo = 'dsjksa-fdsij-github';
+        const msg = "Request failed with status code 500";
+        axios.get.mockRejectedValueOnce(msg);
 
-            await reposDetails(owner, repo);
-            expect(reposDetails).toThrow;
+        expect(() => reposDetails()).rejects.toThrowError('Request failed with status code 500');
 
         
     })
     it('riceve un link sbagliato e risponde con errore', async () =>{
- 
-            let response = await axios.get(
-            'https://GNENEGNEGNIGNIGNI.COM');
-          expect(response).toThrow;
+        const msg = "getaddrinfo ENOTFOUND"
+        
+        axios.get.mockRejectedValueOnce(msg);
+
+        expect(() => reposDetails()).rejects.toThrowError('getaddrinfo ENOTFOUND');
     })
 });
